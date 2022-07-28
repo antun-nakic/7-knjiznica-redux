@@ -5,6 +5,7 @@ export const userSlice = createSlice({
   initialState: {
     ime: "",
     password: "",
+    logiran: false,
   },
   reducers: {
     postaviIme: (state, action) => {
@@ -17,10 +18,21 @@ export const userSlice = createSlice({
     postaviPassword: (state, action) => {
       state.password = action.payload;
     },
+    logirajSe: (state, action) => {
+      if (action.payload === "login") {
+        state.logiran = true;
+      } else {
+        state = {
+          ime: "",
+          password: "",
+          logiran: false,
+        };
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { postaviIme, postaviPassword } = userSlice.actions;
+export const { postaviIme, postaviPassword, logirajSe } = userSlice.actions;
 
 export default userSlice.reducer;
