@@ -4,7 +4,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     ime: "",
-    dob: "0",
+    password: "",
   },
   reducers: {
     postaviIme: (state, action) => {
@@ -14,13 +14,13 @@ export const userSlice = createSlice({
       // immutable state based off those changes
       state.ime = action.payload;
     },
-    postaviDob: (state, action) => {
-      state.dob = action.payload;
+    postaviPassword: (state, action) => {
+      state.password = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { postaviIme, postaviDob } = userSlice.actions;
+export const { postaviIme, postaviPassword } = userSlice.actions;
 
 export default userSlice.reducer;
